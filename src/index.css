@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hospital Design System - Modern & Clean */
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 100% 20%;
+
+    /* Hospital Brand Colors */
+    --hospital-navy: 210 100% 20%;      /* #003366 */
+    --hospital-blue: 200 55% 75%;       /* #ADD8E6 */
+    --hospital-white: 0 0% 100%;        /* #FFFFFF */
+    
+    /* Priority Colors for Medical Dashboard */
+    --urgent: 0 84% 60%;                /* Red - Urgent */
+    --attention: 48 89% 54%;            /* Yellow - Attention */
+    --common: 142 69% 58%;              /* Green - Common */
+    --simple: 210 83% 53%;              /* Blue - Simple */
+
+    /* Semantic Tokens */
+    --primary: var(--hospital-navy);
+    --primary-foreground: var(--hospital-white);
+    
+    --secondary: var(--hospital-blue);
+    --secondary-foreground: var(--hospital-navy);
+    
+    --accent: 200 70% 95%;
+    --accent-foreground: var(--hospital-navy);
+    
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 65%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: var(--hospital-navy);
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--hospital-navy);
+    
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: var(--hospital-blue);
+    
+    --destructive: var(--urgent);
+    --destructive-foreground: var(--hospital-white);
+
+    /* Hospital Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hospital-navy)), hsl(210 100% 35%));
+    --gradient-card: linear-gradient(180deg, hsl(var(--hospital-white)), hsl(200 70% 98%));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--hospital-blue)), hsl(200 65% 85%));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 12px hsl(var(--hospital-navy) / 0.08);
+    --shadow-medical: 0 8px 25px hsl(var(--hospital-navy) / 0.12);
+    --shadow-hover: 0 8px 25px hsl(var(--hospital-navy) / 0.15);
+
+    --radius: 0.75rem;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Hospital Button Variants */
+  .btn-hospital-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-hospital-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-medical-action {
+    @apply bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground hover:from-secondary/90 hover:to-secondary/70 px-6 py-2.5 rounded-lg font-medium transition-all duration-300;
+  }
+
+  /* Medical Priority Cards */
+  .priority-card-urgent {
+    @apply bg-gradient-to-br from-red-500 to-red-600 text-white;
+  }
+  
+  .priority-card-attention {
+    @apply bg-gradient-to-br from-yellow-400 to-yellow-500 text-yellow-900;
+  }
+  
+  .priority-card-common {
+    @apply bg-gradient-to-br from-green-500 to-green-600 text-white;
+  }
+  
+  .priority-card-simple {
+    @apply bg-gradient-to-br from-blue-500 to-blue-600 text-white;
+  }
+
+  /* Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Medical Cards */
+  .medical-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .medical-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
